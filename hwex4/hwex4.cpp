@@ -11,8 +11,12 @@ int main()
 	for (int i = 0; i < 3; i++) {
 		cin >> triangle[i].x >> triangle[i].y;
 	}
+	// walk triangle
 	for (int i = 0; i < 3; i++) {
-		cout << "point" << triangle[i].x << triangle[i].y << endl;
+		int next_i = (i + 1) % 3;
+		cout << " point" << i << ":" << triangle[i].x << ";" << triangle[i].y;
+		cout << " point" << next_i << ":" << triangle[next_i].x << ";" << triangle[next_i].y;
+		cout << endl;
 	}
 
 	cout << "Hello CMake." << endl;
