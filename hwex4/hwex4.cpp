@@ -2,8 +2,17 @@
 // example:
 // hwex4.exe < input-data.txt
 #include "hwex4.h"
-
+#include <cmath>
 using namespace std;
+
+double calc_len(point a, point b) {
+	double len;
+	double x_len, y_len;
+	x_len = a.x - b.x;
+	y_len = a.y - b.y;
+	len = sqrt(pow(x_len, 2) + pow(y_len, 2));
+	return len;
+}
 
 int main() 
 {
@@ -11,14 +20,13 @@ int main()
 	for (int i = 0; i < 3; i++) {
 		cin >> triangle[i].x >> triangle[i].y;
 	}
+	double perimeter=0;
 	// walk triangle
 	for (int i = 0; i < 3; i++) {
 		int next_i = (i + 1) % 3;
-		cout << " point" << i << ":" << triangle[i].x << ";" << triangle[i].y;
-		cout << " point" << next_i << ":" << triangle[next_i].x << ";" << triangle[next_i].y;
-		cout << endl;
+		perimeter += calc_len(triangle[i], triangle[next_i]);
 	}
 
-	cout << "Hello CMake." << endl;
+	cout << "Triangle perimeter is: " << perimeter << endl;
 	return 0;
 }
