@@ -3,6 +3,7 @@
 // hwex4.exe < input-data.txt
 #include "hwex4.h"
 #include <cmath>
+#include <fstream>
 using namespace std;
 
 double calc_len(point a, point b) {
@@ -27,6 +28,9 @@ int main()
 		perimeter += calc_len(triangle[i], triangle[next_i]);
 	}
 
-	cout << "Triangle perimeter is: " << perimeter << endl;
+	ofstream of;
+	of.open("perimeter.txt");
+	of << perimeter << endl;
+	of.close();
 	return 0;
 }
